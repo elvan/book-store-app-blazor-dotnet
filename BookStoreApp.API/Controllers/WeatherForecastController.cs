@@ -8,8 +8,8 @@ namespace BookStoreApp.API.Controllers
     {
         private static readonly string[] Summaries = new[]
         {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+    };
 
         private readonly ILogger<WeatherForecastController> _logger;
 
@@ -24,6 +24,7 @@ namespace BookStoreApp.API.Controllers
             _logger.LogInformation("Made call to Weather Endpoint");
             try
             {
+                throw new Exception("THis is our logging test exception");
                 return Enumerable.Range(1, 5).Select(index => new WeatherForecast
                 {
                     Date = DateTime.Now.AddDays(index),
@@ -37,6 +38,7 @@ namespace BookStoreApp.API.Controllers
                 _logger.LogError(ex, "Fatal Error Occurred");
                 throw;
             }
+            
         }
     }
 }
